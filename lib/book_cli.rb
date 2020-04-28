@@ -24,7 +24,7 @@ class BookCLI
         when "Reading List"
           render_books(Book.favorites)
         else
-          "Goodbye!"
+          puts "Goodbye!"
         end
     end
 end
