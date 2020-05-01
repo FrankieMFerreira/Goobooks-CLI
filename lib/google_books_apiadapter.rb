@@ -7,11 +7,14 @@ class GoogleBooksAPIAdapter
   end
 
   def book_response
-    spinner = TTY::Spinner.new("Fetchng Books... [:spinner]",)
-    print "Fetching books"
+    spinner = TTY::Spinner.new("Fetching Books... [:spinner]",)
     spinner.auto_spin
-    response = RestClient.get("#{BASE_URL}?q=#{query}&maxResults=5")
-    data = JSON.parse(response)
+    begin
+      response = RestClient.get("#{BASE_URL}?q=#{query}&maxResults=5")
+      data = JSON.parse(response)
+    rescue
+      data = ""
+    end
     book_data = data["items"]
     if book_data
       book_data.each do |book|
