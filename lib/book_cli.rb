@@ -3,24 +3,18 @@ class BookCLI
   def run
     clean
     prompt = TTY::Prompt.new
+    @prompt = prompt
     user_selection = ""
     until user_selection == "Exit"
       user_selection = prompt.select('Google Books CLI Menu', ["Search for Books", "Reading List", "Exit"])
         case user_selection
         when "Search for Books"
+          clean
           input = prompt_for_search
           query = parse_input(input)
           fetch_books(query)
           render_books(Book.all)
-          if !Book.all.empty?
-            fav_ask = prompt.yes?('Would you like to add one of these books to your reading list?')
-            if fav_ask
-              favorite_input = prompt.ask('Select a book from #1-5: ') do |q|
-                q.in '1-5'
-            end
-            Book.add_favorites(favorite_input)
-            end
-          end
+          fav_check
           Book.all.clear
           sleep(0.65)
           clean
@@ -49,7 +43,7 @@ end
 
 def fetch_books(query)
   adapter = GoogleBooksAPIAdapter.new(query)
-  adapter.book_response
+  adapter.fetch_books
 end
 
 def render_books(input)
@@ -63,7 +57,19 @@ def render_books(input)
       puts "   Publisher: #{book.publisher_name}"
       puts " "
   end
-end
+ end
+
+  def fav_check
+    if !Book.all.empty?
+      fav_ask = @prompt.yes?('Would you like to add one of these books to your reading list?')
+      if fav_ask
+        favorite_input = @prompt.ask('Select a book from #1-5: ') do |q|
+          q.in '1-5'
+      end
+      Book.add_favorites(favorite_input)
+      end
+    end
+  end
 
 
 end

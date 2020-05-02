@@ -6,7 +6,7 @@ class GoogleBooksAPIAdapter
     @query = query
   end
 
-  def book_response
+  def fetch_books
     spinner = TTY::Spinner.new("Fetching Books... [:spinner]",)
     spinner.auto_spin
     begin
