@@ -24,23 +24,18 @@ Using the tty-prompt gem, I was able to create menus within terminal to give the
 of either doing a search or looking at the reading list. The user will have access to this
 menu all throughout the process until they press exit.
 
-![example1](https://i.imgur.com/ugjmdJZ.png)
+![example1](https://i.imgur.com/2RlSKLw.png)
 
 Using tty-prompt we can do validations to ensure our user input is correct, if not it will
 spit out an appropriate error and make the user continue to input until it's correct.
 
-![example2](https://i.imgur.com/Ske86B5.png)
+![example2](https://i.imgur.com/mULwqN9.png)
 This is a validation that will only allow Y/n (including 'Yes', 'No')
 
-![example3](https://i.imgur.com/AJ4LkIs.png)
+![example3](https://i.imgur.com/lLeWx4Q.png)
 If we say yes to adding to our list, tty-prompt will graciously validate that the answer is between 1 and 5.
 
 Wish List:
-- Need to appropriately deal with 403 responses from the API
 - Want to allow a user to choose more than 1 favorite at a time
 - Want to use tty-prompt to also give a select menu for favorites rather than having the
 user type the number.
-- Ensure that user input for search term is suitable(deny all non-ASCII characters?)
-- Maybe ensure that the same book cannot be added to the reading list more than once
-(might need to save ISBN numbers or something?, doing a new search and adding the same book
-  will result them in having diff object ID since new Book objects are being created every time)
