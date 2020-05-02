@@ -35,7 +35,7 @@ class Book
   end
 
   def self.favorites
-    FAVORITES
+    FAVORITES.uniq {|book| [book.title, book.authors, book.publisher]}
   end
 
 end

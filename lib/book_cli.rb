@@ -1,10 +1,11 @@
 class BookCLI
 
   def run
+    clean
     prompt = TTY::Prompt.new
     user_selection = ""
     until user_selection == "Exit"
-      user_selection = prompt.select('Welcome to the Google Books CLI Application', ["Search for Books", "Reading List", "Exit"])
+      user_selection = prompt.select('Google Books CLI Menu', ["Search for Books", "Reading List", "Exit"])
         case user_selection
         when "Search for Books"
           input = prompt_for_search
@@ -13,22 +14,29 @@ class BookCLI
           render_books(Book.all)
           if !Book.all.empty?
             fav_ask = prompt.yes?('Would you like to add one of these books to your reading list?')
-          end
-          if fav_ask
-            favorite_input = prompt.ask('Select a book from #1-5: ') do |q|
-              q.in '1-5'
-          end
+            if fav_ask
+              favorite_input = prompt.ask('Select a book from #1-5: ') do |q|
+                q.in '1-5'
+            end
             Book.add_favorites(favorite_input)
+            end
           end
           Book.all.clear
+          sleep(0.65)
+          clean
         when "Reading List"
+          clean
           render_books(Book.favorites)
         else
+          clean
           puts "Goodbye!"
         end
     end
 end
 
+def clean
+  puts "\e[H\e[2J"
+end
 
 def prompt_for_search
   print 'Please enter a search term: '
@@ -56,6 +64,7 @@ def render_books(input)
       puts " "
   end
 end
+
 
 end
 end
