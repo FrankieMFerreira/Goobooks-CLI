@@ -32,7 +32,7 @@ class BookCLI
         puts 'Goodbye!'
       end
     end
-end
+  end
 
   def clean
     puts "\e[H\e[2J"
@@ -57,8 +57,10 @@ end
         puts "   Author: #{book.author_names}"
         puts "   Publisher: #{book.publisher_name}"
         puts ' '
+      end
     end
   end
+
 
     def add_to_favorites
       unless Book.all.empty?
@@ -66,15 +68,14 @@ end
         if fav_ask
             clean
             choices = Hash[Book.all.collect.with_index {|book, index| [book.title + " by " + book.author_names + " [Publisher: " + book.publisher_name + "]", index]}]
-            favorite_input = @prompt.multi_select("Select Books for Reading List", choices)
-            ReadingList.add_favorites(favorite_input)
-            if !favorite_input.empty?
+            reading_list_input = @prompt.multi_select("Select Books for Reading List", choices)
+            if !reading_list_input.empty?
+              ReadingList.add_favorites(reading_list_input)
               puts "Successfully added!"
             end
         end
       end
     end
 
-  end
 
 end
