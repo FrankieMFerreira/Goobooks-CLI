@@ -35,7 +35,6 @@ This is a validation that will only allow Y/n (including 'Yes', 'No')
 ![example3](https://i.imgur.com/sNdHQ7W.png)
 If we say yes to adding to our list, we will now obtain a menu to select our favorites from the list. We can select multiple options to add to our favorites or select none to add nothing to our list and return to the main menu.
 
-Wish List:
-- Want to allow a user to choose more than 1 favorite at a time
-- Want to use tty-prompt to also give a select menu for favorites rather than having the
-user type the number.
+Feature Wish List:
+- Perhaps allow the deletion of books from our reading list
+- A way to condense a reading list that gets to long to list out in terminal
