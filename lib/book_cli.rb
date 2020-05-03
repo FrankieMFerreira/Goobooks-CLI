@@ -13,7 +13,12 @@ class BookCLI
         clean
         input = prompt_for_search
         query = parse_input(input)
-        fetch_books(query)
+        spinner = TTY::Spinner.new('Fetching Books... [:spinner]')
+        spinner.auto_spin
+        data = GoogleBooksAPIAdapter.new(query)
+        AddBooks.add_books(data.fetch_books)
+        sleep(0.25)
+        spinner.stop('Done!')
         render_books(Book.all)
         add_to_favorites
         Book.all.clear
@@ -42,11 +47,6 @@ end
     query = input.gsub(' ', '+')
   end
 
-  def fetch_books(query)
-    adapter = GoogleBooksAPIAdapter.new(query)
-    adapter.fetch_books
-  end
-
   def render_books(input)
     books = input
     if books.empty?
@@ -57,8 +57,8 @@ end
         puts "   Author: #{book.author_names}"
         puts "   Publisher: #{book.publisher_name}"
         puts ' '
-      end
-   end
+    end
+  end
 
     def add_to_favorites
       unless Book.all.empty?
@@ -74,6 +74,7 @@ end
         end
       end
     end
+
   end
 
 end
