@@ -64,6 +64,7 @@ end
       unless Book.all.empty?
         fav_ask = @prompt.yes?('Would you like to add one of these books to your reading list?')
         if fav_ask
+            clean
             choices = Hash[Book.all.collect.with_index {|book, index| [book.title + " by " + book.author_names + " [Publisher: " + book.publisher_name + "]", index]}]
             favorite_input = @prompt.multi_select("Select Books for Reading List", choices)
             Book.add_favorites(favorite_input)
