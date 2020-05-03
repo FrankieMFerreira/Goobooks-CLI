@@ -21,7 +21,7 @@ class BookCLI
         clean
       when 'Reading List'
         clean
-        render_books(Book.favorites)
+        render_books(ReadingList.list)
       else
         clean
         puts 'Goodbye!'
@@ -67,7 +67,7 @@ end
             clean
             choices = Hash[Book.all.collect.with_index {|book, index| [book.title + " by " + book.author_names + " [Publisher: " + book.publisher_name + "]", index]}]
             favorite_input = @prompt.multi_select("Select Books for Reading List", choices)
-            Book.add_favorites(favorite_input)
+            ReadingList.add_favorites(favorite_input)
             if !favorite_input.empty?
               puts "Successfully added!"
             end
