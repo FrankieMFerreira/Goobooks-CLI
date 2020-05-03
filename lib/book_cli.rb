@@ -69,7 +69,7 @@ end
             q.messages[:range?] = 'Invalid input, please select a number 1 through 5'
           end
           Book.add_favorites(favorite_input)
-          puts "Successfully added!"
+          puts 'Successfully added!'
         end
       end
     end
