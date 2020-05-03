@@ -1,7 +1,6 @@
 class Book
   attr_accessor :title, :authors, :publisher
   ALL = []
-  FAVORITES = []
 
   def self.all
     ALL
@@ -28,17 +27,6 @@ class Book
     else
       "No publisher found"
     end
-  end
-
-  def self.add_favorites(choices)
-    choices.each do |choice|
-      FAVORITES << ALL[choice]
-    end
-    FAVORITES.uniq! {|book| [book.title, book.authors, book.publisher]}
-  end
-
-  def self.favorites
-    FAVORITES
   end
 
 end
