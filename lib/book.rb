@@ -30,8 +30,10 @@ class Book
     end
   end
 
-  def self.add_favorites(query)
-    FAVORITES << ALL[query.to_i - 1]
+  def self.add_favorites(choices)
+    choices.each do |choice|
+      FAVORITES << ALL[choice]
+    end
     FAVORITES.uniq! {|book| [book.title, book.authors, book.publisher]}
   end
 
