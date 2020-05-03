@@ -15,7 +15,7 @@ class BookCLI
         query = parse_input(input)
         fetch_books(query)
         render_books(Book.all)
-        fav_check
+        add_to_favorites
         Book.all.clear
         sleep(0.65)
         clean
@@ -60,18 +60,19 @@ end
       end
    end
 
-    def fav_check
+    def add_to_favorites
       unless Book.all.empty?
         fav_ask = @prompt.yes?('Would you like to add one of these books to your reading list?')
         if fav_ask
-          favorite_input = @prompt.ask('Select a book from #1-5: ') do |q|
-            q.in '1-5'
-            q.messages[:range?] = 'Invalid input, please select a number 1 through 5'
-          end
-          Book.add_favorites(favorite_input)
-          puts "Successfully added!"
+            choices = Hash[Book.all.collect.with_index {|book, index| [book.title + " by " + book.author_names + " [Publisher: " + book.publisher_name + "]", index]}]
+            favorite_input = @prompt.multi_select("Select Books for Reading List", choices)
+            Book.add_favorites(favorite_input)
+            if !favorite_input.empty?
+              puts "Successfully added!"
+            end
         end
       end
     end
-      end
+  end
+
 end
