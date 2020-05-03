@@ -66,8 +66,10 @@ end
         if fav_ask
           favorite_input = @prompt.ask('Select a book from #1-5: ') do |q|
             q.in '1-5'
+            q.messages[:range?] = 'Invalid input, please select a number 1 through 5'
           end
           Book.add_favorites(favorite_input)
+          puts "Successfully added!"
         end
       end
     end
