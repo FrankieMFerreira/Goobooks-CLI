@@ -60,7 +60,7 @@ Well, this was certainly an experience and am super happy to have exceeded my ex
 
 This was my first experience actually writing tests and being on the other side I now see the huge value in having them early on in the development process. Had I written them early, it would have saved me a few times! I was really wishing to have been able to make tests looking for stdout output but was unable to get it to work with the tty-prompt dependency, I would really like to look into making that a possibility if I can.
 
-I was really pushing to ensure that every class had a single responsibility, but was struggling with 100% confidence if I had split things correctly. In previous commits, our API Adapter had been taking api data and adding it to the Book class, which is obviously inappropriate since its only responsibility should be to return API data. I wasn't super sure that the Book class should be responsible for taking data and adding to itself either, so I created a class AddBooks solely for this purpose.
+I was really pushing to ensure that every class had a single responsibility, but was struggling with 100% confidence if I had split things correctly. In previous commits, our API Adapter had been taking api data and adding it to the Book class, which is obviously inappropriate since its only responsibility should be to return API data. I wasn't super sure that the Book class should be responsible for taking data and adding to itself either, so I created a class AddBooks solely for this purpose. With this uncertainty, I'll be sticking my head in good ol' Uncle Bob's Clean Code book the next few days. Need to get solid with SOLID (sorry, I couldn't help it).
 
 
 ## Stretch goals
