@@ -30,11 +30,11 @@ To search for a book, we will click on Search for Books, write in our search que
 
 ![example2](https://i.imgur.com/mULwqN9.png)
 
-Once the search results have populated, we will have the choice to add any of the books listed to our reading list. You will be prompted Yes or No but if you enter nothing and press enter, Yes will be selected by default.
+Once the search results have populated, we will have the choice to add any of the books listed to our reading list. You will be prompted Yes or No but if you enter nothing and press enter, Yes will be selected by default. If we select no, we will return to the main menu. Otherwise, we will get a menu of options with the book results with the ability to chose which book(s) we would like to add to our reading list.
 
 ![example3](https://i.imgur.com/Y9N2bsN.png)
 
-If we select no, we will return to the main menu. Otherwise, we will get a menu of options with the book results with the ability to chose which book(s) we would like to add to our reading list. Using the arrow keys, we can navigate through the books and press the space bar to select our choices, and ultimately press enter to submit. If you decide that you don't want to add a book from the results into your reading list, you can leave all the choices blank and press enter.
+ Using the arrow keys, we can navigate through the books and press the space bar to select our choices, and ultimately press enter to submit. If you decide that you don't want to add a book from the results into your reading list, you can leave all the choices blank and press enter.
 
 ## Technical Approach
 
