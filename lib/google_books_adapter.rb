@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GoogleBooksAPIAdapter
+class GoogleBooksAdapter
   attr_reader :query
   BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
 

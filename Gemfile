@@ -6,7 +6,6 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 # gem "rails"
 gem "rest-client"
-gem "pry"
 gem 'json'
 gem 'tty-prompt'
 gem 'tty-spinner'

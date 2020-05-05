@@ -15,7 +15,7 @@ class BookCLI
         query = parse_input(input)
         spinner = TTY::Spinner.new('Fetching Books... [:spinner]')
         spinner.auto_spin
-        data = GoogleBooksAPIAdapter.new(query)
+        data = GoogleBooksAdapter.new(query)
         AddBooks.add_books(data.fetch_books)
         sleep(0.25)
         spinner.stop('Done!')

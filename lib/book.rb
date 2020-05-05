@@ -25,7 +25,7 @@ class Book
     if publisher
       publisher
     else
-      "No publisher found"
+      "No Publisher Found"
     end
   end
 
