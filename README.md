@@ -1,6 +1,6 @@
 # Goobooks-CLI
 Runs on
-[ruby](https://i.imgur.com/YLqLgLM.png)
+![ruby](https://i.imgur.com/YLqLgLM.png)
 
 Welcome to my Google Books CLI Application!
 
