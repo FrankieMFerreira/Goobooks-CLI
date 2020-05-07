@@ -26,7 +26,7 @@ class BookCLI
         clean
       when 'Reading List'
         clean
-        render_books(ReadingList.list)
+        render_books(ReadingList.all)
       else
         clean
         puts 'Goodbye!'
